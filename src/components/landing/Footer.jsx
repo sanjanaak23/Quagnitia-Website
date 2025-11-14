@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Facebook } from "lucide-react";
 
 export default function Footer({ isDark, theme }) {
   const currentYear = new Date().getFullYear();
@@ -44,23 +44,65 @@ export default function Footer({ isDark, theme }) {
             </p>
 
             <div className="flex gap-4 justify-center md:justify-start">
-              {[Twitter, Linkedin, Github, Mail].map((Icon, i) => (
-                <a
-                  key={i}
-                  href={i === 3 ? "mailto:info@quagnitia.com" : "#"}
-                  className="w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition-transform"
-                  style={{
-                    backgroundColor: theme.card,
-                    border: `1px solid ${theme.border}`,
-                  }}
-                >
-                  <Icon
-                    className="w-5 h-5"
-                    strokeWidth={1.5}
-                    style={{ color: theme.muted }}
-                  />
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/profile.php?id=100063500963680"
+                className="w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition-transform"
+                style={{
+                  backgroundColor: theme.card,
+                  border: `1px solid ${theme.border}`,
+                }}
+              >
+                <Facebook
+                  className="w-5 h-5"
+                  strokeWidth={1.5}
+                  style={{ color: theme.muted }}
+                />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/quagnitia-systems-pvt.-ltd./"
+                className="w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition-transform"
+                style={{
+                  backgroundColor: theme.card,
+                  border: `1px solid ${theme.border}`,
+                }}
+              >
+                <Linkedin
+                  className="w-5 h-5"
+                  strokeWidth={1.5}
+                  style={{ color: theme.muted }}
+                />
+              </a>
+
+              <a
+                href="https://github.com/amulayprakash"
+                className="w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition-transform"
+                style={{
+                  backgroundColor: theme.card,
+                  border: `1px solid ${theme.border}`,
+                }}
+              >
+                <Github
+                  className="w-5 h-5"
+                  strokeWidth={1.5}
+                  style={{ color: theme.muted }}
+                />
+              </a>
+
+              <a
+                href="mailto:info@quagnitia.co.in"
+                className="w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition-transform"
+                style={{
+                  backgroundColor: theme.card,
+                  border: `1px solid ${theme.border}`,
+                }}
+              >
+                <Mail
+                  className="w-5 h-5"
+                  strokeWidth={1.5}
+                  style={{ color: theme.muted }}
+                />
+              </a>
             </div>
           </div>
 
