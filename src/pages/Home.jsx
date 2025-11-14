@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     document.title =
-      "Quagnitia Systems - Blockchain & Mobile App Development | Token Launches, DeFi, NFT & Web3 Solutions";
+      " Quagnitia Systems Pvt. Ltd. - Blockchain & Mobile App Development | Token Launches, DeFi, NFT & Web3 Solutions";
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {

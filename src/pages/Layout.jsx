@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
-import logo from "./../assets/logo.png";
+import logo from "./../assets/logo_small-up.png";
 const LayoutContext = createContext(null);
 
 export default function Layout({ children }) {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,20 +22,20 @@ export default function Layout({ children }) {
 
   const theme = isDark
     ? {
-        bg: "#0D1722",
-        text: "#F4F7FA",
-        muted: "#9AA7B2",
-        accent: "#1EB2A6",
-        card: "rgba(30, 178, 166, 0.05)",
-        border: "rgba(30, 178, 166, 0.2)",
+        bg: "#08101E",
+        text: "#EAF3FF",
+        muted: "#7D8FA6",
+        accent: "#FF7A1A",
+        card: "rgba(255,122,26,0.06)",
+        border: "rgba(255,122,26,0.25)",
       }
     : {
-        bg: "#F4F7FA",
-        text: "#0D1722",
-        muted: "#5A6B7A",
-        accent: "#1EB2A6",
-        card: "rgba(30, 178, 166, 0.08)",
-        border: "rgba(13, 23, 34, 0.15)",
+        bg: "#EFF4FA",
+        text: "#1A2635",
+        muted: "#56677C",
+        accent: "#FF7F33",
+        card: "rgba(30, 90, 170, 0.06)",
+        border: "rgba(26, 38, 53, 0.18)",
       };
 
   return (
@@ -57,15 +57,11 @@ export default function Layout({ children }) {
 
       {/* Sticky Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "backdrop-blur-lg shadow-lg" : ""
-        }`}
+        className={` top-0 left-0 right-0 z-50 transition-all duration-300`}
         style={{
-          backgroundColor: isScrolled
-            ? isDark
-              ? "rgba(13, 23, 34, 0.9)"
-              : "rgba(244, 247, 250, 0.9)"
-            : "transparent",
+          backgroundColor: isDark
+            ? "rgba(13, 23, 34, 0.9)"
+            : "rgba(255, 255, 255, 1)",
           borderBottom: isScrolled ? `1px solid ${theme.border}` : "none",
         }}
       >
@@ -73,7 +69,7 @@ export default function Layout({ children }) {
           <div className="flex items-center justify-between">
             <img
               src={logo}
-              alt="Quagnitia Systems"
+              alt=" Quagnitia Systems Pvt. Ltd."
               className="h-10 cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             />
@@ -175,7 +171,7 @@ export default function Layout({ children }) {
           {/* Mobile Menu */}
           {mobileMenuOpen && (
             <nav
-              className="md:hidden pt-4 pb-4 flex flex-col gap-4 border-t mt-4"
+              className="md:hidden pt-4 pb-4 flex flex-col items-center gap-4 border-t mt-4"
               style={{ borderColor: theme.border }}
             >
               <button

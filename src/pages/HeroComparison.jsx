@@ -11,8 +11,13 @@ export default function HeroComparison() {
     <div className="bg-[#0A0A0F] min-h-screen">
       <div className="bg-white/5 border-b border-white/10 py-6">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold text-white mb-2">Hero Section Variants</h1>
-          <p className="text-gray-400">Compare heading options and background visuals for Quagnitia Systems landing page</p>
+          <h1 className="text-3xl font-bold text-white mb-2">
+            Hero Section Variants
+          </h1>
+          <p className="text-gray-400">
+            Compare heading options and background visuals for Quagnitia Systems
+            Pvt. Ltd. landing page
+          </p>
         </div>
       </div>
 
@@ -20,15 +25,24 @@ export default function HeroComparison() {
         <div className="bg-[#0A0A0F] border-b border-white/10 sticky top-0 z-50">
           <div className="container mx-auto px-4">
             <TabsList className="bg-white/5 border border-white/10 my-4">
-              <TabsTrigger value="variant-a" className="data-[state=active]:bg-purple-600">
+              <TabsTrigger
+                value="variant-a"
+                className="data-[state=active]:bg-purple-600"
+              >
                 <Code className="w-4 h-4 mr-2" />
                 Variant A: "Idea to Coin"
               </TabsTrigger>
-              <TabsTrigger value="variant-b" className="data-[state=active]:bg-blue-600">
+              <TabsTrigger
+                value="variant-b"
+                className="data-[state=active]:bg-blue-600"
+              >
                 <Code className="w-4 h-4 mr-2" />
                 Variant B: "Build Web3"
               </TabsTrigger>
-              <TabsTrigger value="visuals" className="data-[state=active]:bg-green-600">
+              <TabsTrigger
+                value="visuals"
+                className="data-[state=active]:bg-green-600"
+              >
                 <Eye className="w-4 h-4 mr-2" />
                 Visual Guide
               </TabsTrigger>
@@ -45,10 +59,14 @@ export default function HeroComparison() {
           </div>
           <div className="bg-white/5 border-t border-white/10 py-8">
             <div className="container mx-auto px-4 max-w-4xl">
-              <h3 className="text-white text-xl font-bold mb-4">Variant A Analysis</h3>
+              <h3 className="text-white text-xl font-bold mb-4">
+                Variant A Analysis
+              </h3>
               <div className="grid md:grid-cols-2 gap-6 text-gray-300">
                 <div>
-                  <h4 className="text-purple-400 font-semibold mb-2">Strengths:</h4>
+                  <h4 className="text-purple-400 font-semibold mb-2">
+                    Strengths:
+                  </h4>
                   <ul className="space-y-1 text-sm">
                     <li>• Clear value proposition: "Idea → Coin"</li>
                     <li>• Appeals to enterprise clients</li>
@@ -57,7 +75,9 @@ export default function HeroComparison() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-blue-400 font-semibold mb-2">Best For:</h4>
+                  <h4 className="text-blue-400 font-semibold mb-2">
+                    Best For:
+                  </h4>
                   <ul className="space-y-1 text-sm">
                     <li>• B2B enterprise clients</li>
                     <li>• Startup founders with concepts</li>
@@ -73,16 +93,21 @@ export default function HeroComparison() {
         <TabsContent value="variant-b" className="m-0">
           <div className="relative">
             <div className="absolute top-4 right-4 z-50 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
-              H1: "Build Web3 Products: Token Launches, DeFi, NFTs & Mobile Games"
+              H1: "Build Web3 Products: Token Launches, DeFi, NFTs & Mobile
+              Games"
             </div>
             <HeroVariantB />
           </div>
           <div className="bg-white/5 border-t border-white/10 py-8">
             <div className="container mx-auto px-4 max-w-4xl">
-              <h3 className="text-white text-xl font-bold mb-4">Variant B Analysis</h3>
+              <h3 className="text-white text-xl font-bold mb-4">
+                Variant B Analysis
+              </h3>
               <div className="grid md:grid-cols-2 gap-6 text-gray-300">
                 <div>
-                  <h4 className="text-purple-400 font-semibold mb-2">Strengths:</h4>
+                  <h4 className="text-purple-400 font-semibold mb-2">
+                    Strengths:
+                  </h4>
                   <ul className="space-y-1 text-sm">
                     <li>• Specific service keywords (SEO-friendly)</li>
                     <li>• Product-category focused</li>
@@ -91,7 +116,9 @@ export default function HeroComparison() {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-blue-400 font-semibold mb-2">Best For:</h4>
+                  <h4 className="text-blue-400 font-semibold mb-2">
+                    Best For:
+                  </h4>
                   <ul className="space-y-1 text-sm">
                     <li>• Web3-native clients</li>
                     <li>• Specific product needs (DeFi, NFT)</li>
