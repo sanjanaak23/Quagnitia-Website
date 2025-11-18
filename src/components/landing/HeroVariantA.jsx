@@ -7,12 +7,12 @@ export default function HeroVariantA() {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -28,7 +28,9 @@ export default function HeroVariantA() {
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animation: `float ${5 + Math.random() * 10}s ease-in-out infinite`,
+                animation: `float ${
+                  5 + Math.random() * 10
+                }s ease-in-out infinite`,
                 animationDelay: `${Math.random() * 5}s`,
               }}
             />
@@ -40,11 +42,11 @@ export default function HeroVariantA() {
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-[#0A0A0F] to-blue-900/20" />
-      <div 
+      <div
         className="absolute top-20 left-10 w-72 h-72 bg-purple-600/30 rounded-full blur-3xl animate-pulse"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       />
-      <div 
+      <div
         className="absolute bottom-20 right-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse"
         style={{ transform: `translateY(${scrollY * -0.2}px)` }}
       />
@@ -73,12 +75,15 @@ export default function HeroVariantA() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Full-stack blockchain engineering, secure token launches, DAO governance and mobile app integration — <span className="text-purple-400 font-semibold">Pune-based team</span>, <span className="text-blue-400 font-semibold">global delivery</span>.
+            Full-stack blockchain engineering, secure token launches, DAO
+            governance and mobile app integration —{" "}
+            <span className="text-blue-400 font-semibold">global delivery</span>
+            .
           </p>
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <Button 
+            <Button
               size="lg"
               onClick={scrollToContact}
               className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0 px-8 py-6 text-lg group shadow-lg shadow-purple-500/30"
@@ -87,7 +92,7 @@ export default function HeroVariantA() {
               Schedule a Free Consultation
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button 
+            <Button
               size="lg"
               variant="outline"
               onClick={scrollToContact}
@@ -125,7 +130,8 @@ export default function HeroVariantA() {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) translateX(0px);
           }
           33% {

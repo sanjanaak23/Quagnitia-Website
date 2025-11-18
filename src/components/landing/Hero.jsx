@@ -106,11 +106,11 @@ export default function Hero({ isDark, theme }) {
             Full-stack blockchain engineering, secure token launches, DAO
             governance and mobile app integration —{" "}
             <span style={{ color: theme.accent, fontWeight: "600" }}>
-              Pune-based team
+              Global team
             </span>
             ,{" "}
             <span style={{ color: theme.accent, fontWeight: "600" }}>
-              global delivery
+              Global delivery
             </span>
             .
           </p>

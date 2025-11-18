@@ -66,11 +66,7 @@ export default function About({ isDark, theme }) {
 
               <p>
                 Our pivot to Web3 combines deep technical expertise with
-                battle-tested engineering practices. From our{" "}
-                <span className="font-semibold" style={{ color: theme.accent }}>
-                  Pune headquarters
-                </span>
-                , we serve{" "}
+                battle-tested engineering practices. We serve{" "}
                 <span className="font-semibold" style={{ color: theme.accent }}>
                   global clients
                 </span>{" "}
@@ -219,10 +215,10 @@ export default function About({ isDark, theme }) {
                       className="text-2xl font-bold mb-1"
                       style={{ color: theme.accent }}
                     >
-                      Pune HQ
+                      Global
                     </div>
                     <div className="text-sm" style={{ color: theme.muted }}>
-                      Global Delivery
+                      Worldwide Delivery
                     </div>
                   </div>
 

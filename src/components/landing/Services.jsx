@@ -1,12 +1,6 @@
 // ServicesResponsive.jsx
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   Coins,
@@ -47,6 +41,19 @@ import game1 from "@/assets/game.webp";
 import game2 from "@/assets/game2.jpg";
 
 import web3m from "@/assets/web3m.png";
+
+import app1 from "@/assets/app/1.png";
+import app2 from "@/assets/app/2.png";
+import app3 from "@/assets/app/3.png";
+import app4 from "@/assets/app/4.png";
+import app5 from "@/assets/app/5.png";
+
+import defi1 from "@/assets/defi/2.png";
+import cross from "@/assets/defi/cross.jpeg";
+import cross2 from "@/assets/defi/cross2.jpeg";
+import dapp from "@/assets/defi/dapp.png";
+import fusdtuni from "@/assets/defi/fusdtuni.png";
+import liqui from "@/assets/defi/liqui.jpg";
 /* -------------------------
    DATA: edit services / projects / images here
    -------------------------*/
@@ -57,6 +64,16 @@ const services = [
     title: "Token & Coin Launches",
     description:
       "Smart contract development, tokenomics, audits, liquidity setup and exchange listing guidance.",
+    details: {
+      description:
+        "We provide comprehensive, end-to-end support for successful Token Generation Events (TGEs), guiding projects from initial strategic concept to a secure market launch. Our services are designed to mitigate risk and maximize impact by combining secure, audited smart contract development with rigorous tokenomics modeling, strategic liquidity planning, and comprehensive guidance for regulatory compliance and exchange listings.",
+      points: [
+        "Smart Contract Development & Audits",
+        "Strategic Tokenomics Modeling",
+        "Liquidity Pool Setup",
+        "Exchange Listing Guidance",
+      ],
+    },
     projects: [
       {
         id: "fusdt-01",
@@ -98,7 +115,6 @@ const services = [
           instagram: "https://www.instagram.com/offcial_fusdt/",
           twitter: "https://x.com/official_fusdt",
           medium: "https://medium.com/@official_fusdt",
-          linkedin: "https://www.linkedin.com/in/fusdt-off-a8284838a/",
         },
 
         website: "https://www.fusdt.online/",
@@ -132,30 +148,22 @@ const services = [
       },
     ],
   },
-  // {
-  //   id: "defi",
-  //   icon: Shield,
-  //   title: "DeFi Platform Development",
-  //   description:
-  //     "AMMs, staking, lending, yield strategies, oracle integration and security-first architecture.",
-  //   projects: [
-  //     {
-  //       id: "defi-01",
-  //       title: "FlowAMM",
-  //       short: "Custom AMM with concentrated liquidity",
-  //       caseStudy: "/case-studies/flowamm",
-  //       date: "2023-11-20",
-  //       tech: ["Solidity", "Subgraph"],
-  //       images: ["/images/cases/flowamm-1.jpg"],
-  //     },
-  //   ],
-  // },
   {
     id: "dao",
     icon: Gavel,
     title: "DAO Architecture & Governance",
     description:
       "Token governance, multi-sig, voting modules and treasury management for decentralized orgs.",
+    details: {
+      description:
+        "We specialize in designing and implementing bespoke governance architectures for Decentralized Autonomous Organizations. Our solutions focus on establishing long-term resilience and security, engineering the on-chain voting modules, multi-signature treasury protocols, and incentive-aligned token frameworks necessary to facilitate transparent, effective, and scalable community-led governance.",
+      points: [
+        "Token-Based Governance Frameworks",
+        "On-Chain Voting Modules",
+        "Multi-Signature Treasury Management",
+        "Full DAO Architecture",
+      ],
+    },
     projects: [
       {
         id: "alpha-01",
@@ -195,6 +203,16 @@ const services = [
     title: "NFT Marketplaces & Ecosystems",
     description:
       "Minting, royalties, storefronts, metadata pipelines and cross-chain features.",
+    details: {
+      description:
+        "We construct high-performance, feature-rich NFT marketplaces and the complete technical ecosystems that power them. Our expertise extends beyond the user-facing storefront to the core infrastructure, including efficient minting contracts, complex on-chain royalty enforcement, robust and decentralized metadata pipelines, and multi-chain interoperability to ensure maximum asset reach and utility.",
+      points: [
+        "Efficient Minting & Royalty Contracts",
+        "Custom Storefronts & UI/UX",
+        "Secure Metadata Pipelines",
+        "Cross-Chain Interoperability",
+      ],
+    },
     projects: [
       {
         id: "nft-crypto3d-01",
@@ -275,6 +293,16 @@ const services = [
     title: "Web3 Gaming & Mobile Integration",
     description:
       "Play-to-earn mechanics, wallet SDKs, in-game NFT assets and item economies.",
+    details: {
+      description:
+        "We bridge the gap between traditional gaming and decentralized technology by integrating robust blockchain mechanics directly into interactive experiences. Our team excels at engineering sustainable play-to-earn (P2E) economies, integrating in-game NFT assets, and deploying seamless, non-intrusive mobile wallet SDKs. We provide the complete backend infrastructure to power the next generation of GameFi.",
+      points: [
+        "Play-to-Earn (P2E) Mechanic Design",
+        "In-Game NFT Asset Economies",
+        "Seamless Mobile Wallet SDK Integration",
+        "Backend GameFi Infrastructure",
+      ],
+    },
     projects: [
       {
         id: "web3-gaming-01",
@@ -356,18 +384,163 @@ const services = [
     title: "Enterprise Mobile & Web Apps",
     description:
       "Scalable backends, API design, responsive UI/UX, wallet integrations and post-launch support.",
+    details: {
+      description:
+        "We build enterprise-grade mobile and web applications designed to securely and efficiently interface with complex blockchain protocols. Our focus is on creating scalable, high-performance systems through robust API design, resilient backends, and intuitive, responsive UI/UX. We manage the complexity of non-custodial wallet integrations and on-chain data indexing, delivering a production-ready product with full post-launch support.",
+      points: [
+        "Scalable Backends & API Design",
+        "Secure Multi-Platform Wallet Integration",
+        "Responsive, High-Performance UI/UX",
+        "Full Lifecycle & Post-Launch Support",
+      ],
+    },
     projects: [
       {
-        id: "app-01",
-        title: "LedgerPro App",
-        short: "Enterprise wallet + analytics dashboard",
-        caseStudy: "/case-studies/ledgerpro",
-        date: "2023-10-05",
-        tech: ["React Native", "Node.js"],
-        images: [
-          "/images/cases/ledgerpro-1.jpg",
-          "/images/cases/ledgerpro-2.jpg",
+        id: "app-docboyz-01",
+        title: "DocBoyz",
+        short:
+          "A digital field-force automation platform enabling secure doorstep document collection and verification.",
+
+        description:
+          "DocBoyz is a field-force automation platform that streamlines doorstep KYC, document pickup, verification, and logistics coordination. It enables financial institutions and enterprises to automate last-mile operations with real-time tracking, secure workflows, and mobile-first workforce management.",
+
+        date: "2024-01-01",
+
+        tech: [
+          "Android",
+          "iOS",
+          "React Native",
+          "Secure Document Handling",
+          "KYC Verification Workflows",
         ],
+
+        images: [app3, app2],
+
+        website: "http://www.docboyz.in/",
+      },
+      {
+        id: "app-maphook-01",
+        title: "MapHook",
+        short:
+          "A social discovery app for sharing and exploring geo-tagged memories, events, and nearby stories.",
+
+        description:
+          "MapHook is a social discovery platform that enables users to create and explore geo-tagged posts called 'hooks'. Users can share experiences, events, news, and locations using structured location-based entries. The app provides a unique blend of social networking, real-time discovery, and personalized mapping.",
+
+        date: "2024-01-01",
+
+        tech: [
+          "iOS",
+          "Android",
+          "Geo-Tagging",
+          "Maps Integration",
+          "Social Discovery",
+        ],
+
+        images: [app1, app5],
+
+        website: "https://maphook.com/",
+      },
+      {
+        id: "app-mylo-01",
+        title: "MYLO – Mind Your Loved Ones",
+        short:
+          "A mobile app for securely storing and sharing critical medical information and healthcare directives.",
+
+        description:
+          "MYLO helps individuals store and manage their own and their loved ones’ essential medical information, healthcare directives, medications, and emergency documents. Users can instantly share this data with caregivers, healthcare providers, and trusted contacts via email, fax, text, or print, directly from their device.",
+
+        date: "2024-01-01",
+
+        tech: [
+          "iOS",
+          "Android",
+          "Secure Data Storage",
+          "Medical Information Management",
+          "Healthcare Document Sharing",
+        ],
+
+        images: [app4],
+
+        website: "https://www.mindyourlovedones.com/",
+      },
+    ],
+  },
+  {
+    id: "defi",
+    icon: Shield,
+    title: "DeFi Platform Development",
+    description:
+      "AMMs, staking, lending, yield strategies, oracle integration and security-first architecture.",
+    details: {
+      description:
+        "We architect and deploy sophisticated, security-first Decentralized Finance (DeFi) platforms designed for high reliability and capital efficiency. Our expertise covers the full spectrum of DeFi protocols, including custom Automated Market Makers (AMMs), advanced yield optimization strategies, decentralized lending/borrowing markets, secure oracle integrations, and comprehensive staking solutions.",
+      points: [
+        "Custom AMM & Liquidity Solutions",
+        "Staking & Lending Protocols",
+        "Complex Yield Farming Strategies",
+        "Secure Oracle Integration",
+        "Security-First Smart Contract Architecture",
+      ],
+    },
+    projects: [
+      {
+        id: "defi-01",
+        title: "FUSDT Custom AMM & DEX ",
+        short: "Custom AMM & DEX Development",
+        description:
+          "We architect and deploy bespoke Automated Market Makers (AMMs) and complete Decentralized Exchanges (DEXs) from the ground up. This service is for clients who need unique features not available in standard forks. We design, build, and audit the complete smart contract system to match your specific protocol requirements.",
+        date: "2023-11-20",
+        tech: ["Solidity", "Subgraph"],
+        images: [
+          defi1,
+          fusdtuni,
+          "https://i.postimg.cc/L6KDbNB6/offcial-2-200x200.png",
+          fusdt1,
+          fusdt2,
+        ],
+        contract: {
+          etherscan:
+            "https://etherscan.io/address/0x8413C89bA166f95E886dc5560f80E40640968ac6",
+          uniswap: "https://app.uniswap.org/positions/v4/ethereum/80254",
+        },
+
+        docs: {
+          tokenomics:
+            "https://drive.google.com/file/d/1OByrlo7_krMqADZtMXU8683_jotkPtdq/view?usp=sharing",
+          whitepaper:
+            "https://drive.google.com/file/d/1U00iRaXhEZBI3IlTGLXZyblq1QpRkFtN/view?usp=sharing",
+        },
+        socials: {
+          instagram: "https://www.instagram.com/offcial_fusdt/",
+          twitter: "https://x.com/official_fusdt",
+          medium: "https://medium.com/@official_fusdt",
+        },
+
+        website: "https://www.fusdt.online/",
+        contact: {
+          email: "iam@fusdt.online",
+        },
+      },
+      {
+        id: "defi-02",
+        title: "Concentrated Liquidity Solutions",
+        short: "Custom AMM with concentrated liquidity",
+        description:
+          "We build high-capital-efficiency AMMs utilizing concentrated liquidity. This advanced model allows liquidity providers to allocate capital within specific price ranges, dramatically increasing LP efficiency and offering traders significantly lower slippage. We use NFTs (ERC-721s) to represent these complex LP positions.",
+        date: "2023-11-20",
+        tech: ["Solidity", "Subgraph"],
+        images: [liqui],
+      },
+      {
+        id: "defi-03",
+        title: "Specialized AMMs (Stableswap & Cross-Chain)",
+        description: `We engineer AMMs for specific use cases. This includes "Stableswap" protocols for high-volume, ultra-low-slippage swaps between like-assets (stablecoins) and "Cross-Chain" AMMs that serve as the core liquidity engine for bridges, facilitating seamless swaps across multiple networks.`,
+        short: "Custom AMM with concentrated liquidity",
+        caseStudy: "/case-studies/flowamm",
+        date: "2023-11-20",
+        tech: ["Solidity", "Subgraph"],
+        images: [dapp, cross, cross2],
       },
     ],
   },
@@ -431,7 +604,7 @@ function useIsBrowser() {
   return isBrowser;
 }
 
-/* ---------- Carousel with touch support ---------- */
+/* ---------- Carousel with touch support and auto-loop ---------- */
 function ModalCarousel({
   images = [],
   startIndex = 0,
@@ -443,29 +616,85 @@ function ModalCarousel({
   const containerRef = useRef(null);
   const touchStartX = useRef(null);
   const touchDeltaX = useRef(0);
+  const autoPlayIntervalRef = useRef(null);
   const SWIPE_THRESHOLD = 50; // px
+  const AUTO_PLAY_INTERVAL = 4000; // 4 seconds
 
   useEffect(() => setIndex(startIndex || 0), [startIndex, images]);
 
   useEffect(() => onIndexChange(index), [index, onIndexChange]);
 
+  // Pause auto-play on user interaction
+  const pauseAutoPlayRef = useRef(null);
+  const pauseAutoPlay = useCallback(() => {
+    if (autoPlayIntervalRef.current) {
+      clearInterval(autoPlayIntervalRef.current);
+      autoPlayIntervalRef.current = null;
+    }
+    // Clear any existing resume timeout
+    if (pauseAutoPlayRef.current) {
+      clearTimeout(pauseAutoPlayRef.current);
+    }
+    // Resume after 8 seconds of inactivity
+    pauseAutoPlayRef.current = setTimeout(() => {
+      if (images.length > 1 && !autoPlayIntervalRef.current) {
+        autoPlayIntervalRef.current = setInterval(() => {
+          setIndex((i) => (i + 1) % images.length);
+        }, AUTO_PLAY_INTERVAL);
+      }
+    }, 8000);
+  }, [images.length]);
+
+  // Auto-play carousel in a loop
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    autoPlayIntervalRef.current = setInterval(() => {
+      setIndex((i) => (i + 1) % images.length);
+    }, AUTO_PLAY_INTERVAL);
+
+    return () => {
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current);
+        autoPlayIntervalRef.current = null;
+      }
+      if (pauseAutoPlayRef.current) {
+        clearTimeout(pauseAutoPlayRef.current);
+        pauseAutoPlayRef.current = null;
+      }
+    };
+  }, [images.length]);
+
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") {
+        prev();
+        pauseAutoPlay();
+      }
+      if (e.key === "ArrowRight") {
+        next();
+        pauseAutoPlay();
+      }
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
-  const prev = () => setIndex((i) => (i - 1 + images.length) % images.length);
-  const next = () => setIndex((i) => (i + 1) % images.length);
+  const prev = () => {
+    setIndex((i) => (i - 1 + images.length) % images.length);
+    pauseAutoPlay();
+  };
+  const next = () => {
+    setIndex((i) => (i + 1) % images.length);
+    pauseAutoPlay();
+  };
 
   // touch handlers for mobile swipe
   const onTouchStart = (e) => {
     touchStartX.current = e.touches?.[0]?.clientX ?? null;
     touchDeltaX.current = 0;
+    pauseAutoPlay();
   };
   const onTouchMove = (e) => {
     if (touchStartX.current == null) return;
@@ -498,9 +727,13 @@ function ModalCarousel({
         <button
           aria-label="Previous"
           onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 rounded p-2 z-10 touch-target"
+          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full p-2 z-10 touch-target transition-all hover:scale-110"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backdropFilter: "blur(4px)",
+          }}
         >
-          <ChevronLeft className="w-6 h-6" style={{ color: theme.text }} />
+          <ChevronLeft className="w-6 h-6" style={{ color: "#ffffff" }} />
         </button>
 
         <div
@@ -529,9 +762,13 @@ function ModalCarousel({
         <button
           aria-label="Next"
           onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-2 z-10 touch-target"
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-2 z-10 touch-target transition-all hover:scale-110"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backdropFilter: "blur(4px)",
+          }}
         >
-          <ChevronRight className="w-6 h-6" style={{ color: theme.text }} />
+          <ChevronRight className="w-6 h-6" style={{ color: "#ffffff" }} />
         </button>
       </div>
 
@@ -540,9 +777,14 @@ function ModalCarousel({
         {images.map((src, i) => (
           <button
             key={src + i}
-            onClick={() => setIndex(i)}
-            className={`rounded overflow-hidden shrink-0 border-2 ${
-              i === index ? "border-white" : "border-transparent"
+            onClick={() => {
+              setIndex(i);
+              pauseAutoPlay();
+            }}
+            className={`rounded-lg overflow-hidden shrink-0 border-2 transition-all ${
+              i === index
+                ? "border-white scale-105 shadow-lg"
+                : "border-transparent opacity-60 hover:opacity-100"
             }`}
             style={{
               width: isMobile ? 80 : 96,
@@ -619,49 +861,53 @@ function PortalModal({
     inset: 0,
     backgroundColor: "rgba(2,6,23,0.85)",
     display: "flex",
-    alignItems: isMobile ? "flex-start" : "center",
+    alignItems: "center",
     justifyContent: "center",
     WebkitOverflowScrolling: "touch",
     zIndex: 100000,
     overflowY: "auto",
-    padding: isMobile ? "0" : "1rem",
+    padding: isMobile ? "1rem" : "1rem",
   };
 
   const panelStyle = {
-    width: "100%",
-    maxWidth: isMobile ? "100%" : "64rem",
-    minHeight: isMobile ? "100vh" : "auto",
-    maxHeight: isMobile ? "none" : "80vh",
+    width: isMobile ? "90%" : "auto",
+    maxWidth: isMobile ? "90%" : "64rem",
+    minHeight: isMobile ? "auto" : "auto",
+    maxHeight: isMobile ? "90vh" : "85vh",
     overflow: "hidden",
-    borderRadius: isMobile ? "32px 32px 0 0" : 12,
+    borderRadius: isMobile ? "16px" : 12,
     backgroundColor: "#fff",
     border: `1px solid ${theme?.border ?? "#e5e7eb"}`,
     padding: isMobile
       ? "1.25rem 1rem calc(env(safe-area-inset-bottom) + 1.5rem)"
-      : "1.25rem",
+      : "1.5rem",
     boxShadow: "0 10px 40px rgba(2,6,23,0.8)",
     position: "relative",
     pointerEvents: "auto",
     zIndex: 100001,
     display: "flex",
     flexDirection: "column",
+    margin: isMobile ? "auto" : "0",
   };
 
   const closeBtnStyle = {
     position: "absolute",
-    top: 12,
-    right: 12,
+    top: 16,
+    right: 16,
     zIndex: 3,
     border: "none",
-    padding: 8,
-    borderRadius: 8,
+    padding: 10,
+    borderRadius: "50%",
     cursor: "pointer",
-    backgroundColor: "rgb(255, 255, 255)",
-    color: theme?.card ?? "#fff",
-    boxShadow: "0 6px 18px rgba(2,6,23,0.35)",
+    backgroundColor: "#ef4444",
+    color: "#ffffff",
+    boxShadow: "0 4px 12px rgba(239, 68, 68, 0.4)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    width: "40px",
+    height: "40px",
+    transition: "all 0.2s ease",
   };
 
   const content = (
@@ -688,23 +934,24 @@ function PortalModal({
           aria-label="Close modal"
           onClick={onClose}
           style={closeBtnStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "#dc2626";
+            e.currentTarget.style.transform = "scale(1.1)";
+            e.currentTarget.style.boxShadow =
+              "0 6px 16px rgba(239, 68, 68, 0.5)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "#ef4444";
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.boxShadow =
+              "0 4px 12px rgba(239, 68, 68, 0.4)";
+          }}
         >
-          {/* simple X — you can replace with the lucide CloseIcon if you import it */}
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-              stroke={theme?.card ?? "#fff"}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <CloseIcon
+            className="w-5 h-5"
+            strokeWidth={2.5}
+            style={{ color: "#ffffff" }}
+          />
         </button>
 
         {/* children area */}
@@ -762,15 +1009,18 @@ function renderServiceModalContent(
   const linkBadgeStyle = {
     display: "inline-flex",
     alignItems: "center",
-    gap: 6,
-    padding: "6px 12px",
-    borderRadius: 8,
+    gap: 8,
+    padding: "10px 16px",
+    borderRadius: 10,
     border: `1px solid ${theme.border}`,
+    backgroundColor: theme.card,
     color: theme.text,
-    fontSize: 12,
-    fontWeight: 600,
+    fontSize: 13,
+    fontWeight: 500,
     textDecoration: "none",
     whiteSpace: "nowrap",
+    transition: "all 0.2s ease",
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
   };
 
   const makeLink = (label, href) => (href ? { label, href } : null);
@@ -779,15 +1029,21 @@ function renderServiceModalContent(
     const filtered = links.filter(Boolean);
     if (!filtered.length) return null;
     return (
-      <div className="mt-3 space-y-1">
+      <div
+        className="mt-4 space-y-3 p-4 rounded-xl"
+        style={{
+          backgroundColor: theme.card,
+          border: `1px solid ${theme.border}`,
+        }}
+      >
         <div
-          className="text-[11px] uppercase tracking-wide font-semibold"
-          style={{ color: theme.muted }}
+          className="text-xs uppercase tracking-wide font-semibold"
+          style={{ color: theme.accent }}
         >
           {title}
         </div>
         <div
-          className={`flex gap-2 ${
+          className={`flex gap-3 ${
             isMobile ? "overflow-x-auto pb-1 touch-pan-x snap-x" : "flex-wrap"
           }`}
           style={{
@@ -801,9 +1057,26 @@ function renderServiceModalContent(
               target="_blank"
               rel="noreferrer"
               style={linkBadgeStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = theme.accent;
+                e.currentTarget.style.backgroundColor = `${theme.accent}10`;
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = `0 4px 12px ${theme.accent}20`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = theme.border;
+                e.currentTarget.style.backgroundColor = theme.card;
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 1px 3px rgba(0, 0, 0, 0.1)";
+              }}
             >
               <span>{link.label}</span>
-              <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
+              <ArrowRight
+                className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                strokeWidth={2}
+                style={{ color: theme.accent }}
+              />
             </a>
           ))}
         </div>
@@ -858,131 +1131,187 @@ function renderServiceModalContent(
   };
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
+      {/* 1. Modal Title */}
       <header>
         <h3
-          className="text-xl sm:text-2xl font-semibold"
-          style={{ color: theme.text }}
+          className="text-2xl sm:text-3xl font-bold mb-3"
+          style={{
+            fontFamily: "Poppins, sans-serif",
+            color: theme.text,
+          }}
         >
           {service.title}
         </h3>
-        <p className="text-sm" style={{ color: theme.muted }}>
+        {/* 2. Description */}
+        <p className="text-base leading-relaxed" style={{ color: theme.muted }}>
           {service.description}
         </p>
       </header>
 
-      {/* Carousel area (shows when carouselImages is set) */}
-      {carouselImages && carouselImages.length > 0 && (
-        <ModalCarousel
-          images={carouselImages}
-          startIndex={carouselStartIndex}
-          onIndexChange={onCarouselIndexChange}
-          theme={theme}
-          isMobile={isMobile}
-        />
-      )}
-
-      <section className="space-y-4">
-        <div className="space-y-2">
-          <div
-            role="tablist"
-            aria-label="Project detail tabs"
-            className="flex gap-2 overflow-x-auto pb-1 touch-pan-x snap-x snap-mandatory"
-          >
-            {projects.map((p, idx) => {
-              const active = idx === activeProjectIndex;
-              return (
-                <button
-                  key={p.id}
-                  role="tab"
-                  aria-selected={active}
-                  aria-controls={`project-panel-${p.id}`}
-                  id={`project-tab-${p.id}`}
-                  className={`px-3 py-2 rounded-xl text-left transition-colors snap-start ${
-                    active
-                      ? "shadow-lg shadow-indigo-200"
-                      : "opacity-80 hover:opacity-100"
-                  }`}
-                  style={{
-                    border: `1px solid ${active ? theme.accent : theme.border}`,
-                    background: active ? theme.card : "transparent",
-                    minWidth: isMobile ? 220 : 160,
-                  }}
-                  onClick={() => onProjectTabChange(idx)}
-                >
-                  <div
-                    className="text-[11px] uppercase tracking-wide"
-                    style={{ color: active ? theme.accent : theme.muted }}
-                  >
-                    Project {idx + 1}
-                  </div>
-                  <div
-                    className="text-sm font-semibold line-clamp-1"
+      {/* 3. Details Section */}
+      {service.details && (
+        <div
+          className="rounded-xl p-5 space-y-4"
+          style={{
+            backgroundColor: theme.card,
+            border: `1px solid ${theme.border}`,
+          }}
+        >
+          {service.details.description && (
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: theme.text }}
+            >
+              {service.details.description}
+            </p>
+          )}
+          {service.details.points && service.details.points.length > 0 && (
+            <div className="space-y-2">
+              <div
+                className="text-xs uppercase tracking-wide font-semibold"
+                style={{ color: theme.muted }}
+              >
+                Key Features
+              </div>
+              <ul className="space-y-2">
+                {service.details.points.map((point, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 text-sm"
                     style={{ color: theme.text }}
                   >
-                    {p.title}
-                  </div>
-                  <div className="text-[12px]" style={{ color: theme.muted }}>
-                    {p.date}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {activeProject ? (
-          <div
-            id={`project-panel-${activeProject.id}`}
-            role="tabpanel"
-            aria-labelledby={`project-tab-${activeProject.id}`}
-            className="space-y-5"
-          >
-            <div
-              className="rounded-2xl p-4 md:p-6 space-y-4"
-              style={{
-                border: `1px solid ${theme.border}`,
-                background: isDarkTheme(theme)
-                  ? "rgba(15,23,42,0.6)"
-                  : "rgba(255,255,255,0.95)",
-                boxShadow: "0 12px 30px rgba(15,23,42,0.12)",
-              }}
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-                <div className="flex-1 space-y-4">
-                  <div className="flex flex-wrap gap-3 text-xs">
                     <span
-                      className="px-3 py-1 rounded-full uppercase tracking-wide"
-                      style={{
-                        background: theme.card,
-                        border: `1px solid ${theme.border}`,
-                        color: theme.accent,
-                      }}
+                      className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                      style={{ backgroundColor: theme.accent }}
+                    />
+                    <span className="flex-1">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 4. Project Tabs */}
+      {projects.length > 0 && (
+        <section className="space-y-4">
+          <div className="space-y-2">
+            <div
+              className="text-xs uppercase tracking-wide font-semibold"
+              style={{ color: theme.muted }}
+            >
+              Projects
+            </div>
+            <div
+              role="tablist"
+              aria-label="Project detail tabs"
+              className="flex gap-2 overflow-x-auto pb-1 touch-pan-x snap-x snap-mandatory"
+            >
+              {projects.map((p, idx) => {
+                const active = idx === activeProjectIndex;
+                return (
+                  <button
+                    key={p.id}
+                    role="tab"
+                    aria-selected={active}
+                    aria-controls={`project-panel-${p.id}`}
+                    id={`project-tab-${p.id}`}
+                    className={`px-3 py-2 rounded-xl text-left transition-colors snap-start ${
+                      active ? "shadow-lg" : "opacity-80 hover:opacity-100"
+                    }`}
+                    style={{
+                      border: `1px solid ${
+                        active ? theme.accent : theme.border
+                      }`,
+                      background: active ? theme.card : "transparent",
+                      minWidth: isMobile ? 220 : 160,
+                      boxShadow: active
+                        ? `0 4px 12px ${theme.accent}30`
+                        : "none",
+                    }}
+                    onClick={() => onProjectTabChange(idx)}
+                  >
+                    <div
+                      className="text-[11px] uppercase tracking-wide"
+                      style={{ color: active ? theme.accent : theme.muted }}
                     >
-                      {service.title}
-                    </span>
+                      Project {idx + 1}
+                    </div>
+                    <div
+                      className="text-sm font-semibold line-clamp-1"
+                      style={{ color: theme.text }}
+                    >
+                      {p.title}
+                    </div>
+                    <div className="text-[12px]" style={{ color: theme.muted }}>
+                      {p.date}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 5. Photo Slides/Carousel - Shows images for selected project */}
+          {activeProject &&
+            activeProject.images &&
+            activeProject.images.length > 0 && (
+              <div className="mt-4">
+                <ModalCarousel
+                  images={activeProject.images}
+                  startIndex={0}
+                  onIndexChange={onCarouselIndexChange}
+                  theme={theme}
+                  isMobile={isMobile}
+                />
+              </div>
+            )}
+
+          {/* 6. Project Related Details */}
+          {activeProject ? (
+            <div
+              id={`project-panel-${activeProject.id}`}
+              role="tabpanel"
+              aria-labelledby={`project-tab-${activeProject.id}`}
+              className="space-y-5"
+            >
+              <div
+                className="rounded-xl p-5 space-y-4"
+                style={{
+                  border: `1px solid ${theme.border}`,
+                  backgroundColor: theme.card,
+                }}
+              >
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-3 text-xs">
                     {activeProject.date && (
                       <span
-                        className="px-2 py-1 rounded-full"
+                        className="px-3 py-1 rounded-full"
                         style={{
                           border: `1px solid ${theme.border}`,
                           color: theme.text,
+                          backgroundColor: theme.card,
                         }}
                       >
                         {activeProject.date}
                       </span>
                     )}
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     <h4
-                      className="text-lg md:text-xl font-semibold"
-                      style={{ color: theme.text }}
+                      className="text-xl font-semibold"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        color: theme.text,
+                      }}
                     >
                       {activeProject.title}
                     </h4>
                     {activeProject.short && (
                       <p
-                        className="text-sm mt-1"
+                        className="text-sm leading-relaxed"
                         style={{ color: theme.muted }}
                       >
                         {activeProject.short}
@@ -999,22 +1328,34 @@ function renderServiceModalContent(
                   )}
 
                   {activeProject.tech && activeProject.tech.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {activeProject.tech.map((tech) => (
-                        <span key={tech} style={chipStyle}>
-                          {tech}
-                        </span>
-                      ))}
+                    <div className="space-y-2">
+                      <div
+                        className="text-xs uppercase tracking-wide font-semibold"
+                        style={{ color: theme.muted }}
+                      >
+                        Technologies
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {activeProject.tech.map((tech) => (
+                          <span key={tech} style={chipStyle}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
 
-                  <div className="flex flex-wrap gap-3">
-                    {activeProject.caseStudy && (
+                  {activeProject.caseStudy && (
+                    <div className="flex flex-wrap gap-3 pt-2">
                       <Button
                         variant="ghost"
                         onClick={() =>
                           (window.location.href = activeProject.caseStudy)
                         }
+                        style={{
+                          border: `1px solid ${theme.border}`,
+                          color: theme.text,
+                        }}
                       >
                         Case Study
                         <ArrowRight
@@ -1022,64 +1363,12 @@ function renderServiceModalContent(
                           strokeWidth={1.5}
                         />
                       </Button>
-                    )}
-                    <Button
-                      variant="ghost"
-                      onClick={() => onOpenCarousel(activeProject.id, 0)}
-                    >
-                      View Gallery
-                      <ChevronRight
-                        className="w-4 h-4 ml-1"
-                        strokeWidth={1.5}
-                      />
-                    </Button>
-                  </div>
+                    </div>
+                  )}
                 </div>
-                {activeProject.images && activeProject.images.length > 0 && (
-                  <div className="w-full lg:w-64 order-first lg:order-last space-y-3">
-                    <div
-                      className="rounded-xl overflow-hidden"
-                      style={{
-                        border: `1px solid ${theme.border}`,
-                        background: "#000",
-                      }}
-                    >
-                      <img
-                        src={activeProject.images[0]}
-                        alt={`${activeProject.title}-cover`}
-                        className="w-full h-52 object-cover"
-                      />
-                    </div>
-                    <div className="mt-1 flex gap-2 overflow-x-auto touch-pan-x">
-                      {activeProject.images.slice(0, 5).map((src, idx) => (
-                        <button
-                          key={src + idx}
-                          onClick={() => onOpenCarousel(activeProject.id, idx)}
-                          className="rounded-xl overflow-hidden"
-                          style={{
-                            width: 64,
-                            height: 48,
-                            border: `1px solid ${theme.border}`,
-                          }}
-                        >
-                          <img
-                            src={src}
-                            alt={`${activeProject.title}-thumb-${idx}`}
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "cover",
-                            }}
-                          />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
-            </div>
 
-            {activeProject ? (
+              {/* Additional Project Information */}
               <div className="space-y-5">
                 {renderCapabilityGrid(activeProject.capabilities)}
                 <div className="space-y-4">
@@ -1113,14 +1402,14 @@ function renderServiceModalContent(
                   ])}
                 </div>
               </div>
-            ) : null}
-          </div>
-        ) : (
-          <p className="text-sm" style={{ color: theme.muted }}>
-            No projects available for this service yet.
-          </p>
-        )}
-      </section>
+            </div>
+          ) : (
+            <p className="text-sm" style={{ color: theme.muted }}>
+              No projects available for this service yet.
+            </p>
+          )}
+        </section>
+      )}
     </div>
   );
 }
@@ -1150,8 +1439,6 @@ export default function Services({ isDark, theme }) {
   );
 
   const isMobile = isClientMobile || isMobileHook;
-  const [activeIndex, setActiveIndex] = useState(0);
-  const tabsRef = useRef([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalService, setModalService] = useState(null);
   const [modalProjectIndex, setModalProjectIndex] = useState(0);
@@ -1190,17 +1477,6 @@ export default function Services({ isDark, theme }) {
     [resetCarouselState]
   );
 
-  // keyboard navigation for tabs
-  const onTabsKeyDown = (e) => {
-    const count = services.length;
-    if (["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key))
-      e.preventDefault();
-    if (e.key === "ArrowRight") setActiveIndex((i) => (i + 1) % count);
-    if (e.key === "ArrowLeft") setActiveIndex((i) => (i - 1 + count) % count);
-    if (e.key === "Home") setActiveIndex(0);
-    if (e.key === "End") setActiveIndex(count - 1);
-  };
-
   // open modal for a service (carousel cleared)
   const openModalFor = (service) => {
     setModalService(service);
@@ -1217,16 +1493,20 @@ export default function Services({ isDark, theme }) {
 
   // open carousel for a project (within modal)
   const onOpenCarousel = (projectId, imageIndex = 0) => {
-    const svc = modalService || services[activeIndex];
-    if (!svc) return;
-    const project = svc.projects?.find((p) => p.id === projectId);
+    if (!modalService) return;
+    const project = modalService.projects?.find((p) => p.id === projectId);
     if (!project || !project.images || project.images.length === 0) return;
-    const projectIndex = svc.projects?.findIndex((p) => p.id === projectId);
+    const projectIndex = modalService.projects?.findIndex(
+      (p) => p.id === projectId
+    );
     if (projectIndex >= 0) setModalProjectIndex(projectIndex);
-    syncProjectCarousel(svc, projectIndex >= 0 ? projectIndex : 0, imageIndex);
+    syncProjectCarousel(
+      modalService,
+      projectIndex >= 0 ? projectIndex : 0,
+      imageIndex
+    );
     // ensure modal is open
     if (!isModalOpen) {
-      setModalService(svc);
       setIsModalOpen(true);
     }
   };
@@ -1234,16 +1514,16 @@ export default function Services({ isDark, theme }) {
   const onCarouselIndexChange = (idx) => setCarouselCurrentIndex(idx);
 
   const handleProjectTabChange = (idx) => {
-    const svc = modalService || services[activeIndex];
+    if (!modalService) return;
     setModalProjectIndex(idx);
-    syncProjectCarousel(svc, idx, 0);
+    // Sync carousel to show the selected project's images
+    const project = modalService.projects?.[idx];
+    if (project && project.images && project.images.length > 0) {
+      syncProjectCarousel(modalService, idx, 0);
+    } else {
+      resetCarouselState();
+    }
   };
-
-  // focus the active tab button for roving focus
-  useEffect(() => {
-    const btn = tabsRef.current[activeIndex];
-    if (btn) btn.focus();
-  }, [activeIndex]);
 
   return (
     <section id="services" className="py-10 px-4 relative">
@@ -1264,152 +1544,73 @@ export default function Services({ isDark, theme }) {
           </p>
         </div>
 
-        {/* Tabs: horizontal scroll on mobile; full labels on md+ */}
-        <div>
-          <div
-            role="tablist"
-            aria-label="Services"
-            onKeyDown={onTabsKeyDown}
-            className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 mb-6"
-          >
-            {services.map((s, i) => {
-              const active = i === activeIndex;
-              return (
-                <button
-                  key={s.id}
-                  role="tab"
-                  aria-selected={active}
-                  aria-controls={`panel-${s.id}`}
-                  id={`tab-${s.id}`}
-                  ref={(el) => (tabsRef.current[i] = el)}
-                  onClick={() => setActiveIndex(i)}
-                  className={`flex items-center gap-2 px-3 py-2 mx-1 rounded-md focus:outline-none ${
-                    active ? "ring-2 ring-offset-2" : "hover:opacity-95"
-                  }`}
-                  style={{
-                    border: `1px solid ${active ? theme.accent : theme.border}`,
-                    background: active ? theme.card : "transparent",
-                    color: active ? theme.text : theme.muted,
-                    minWidth: isMobile ? 120 : "auto",
-                    fontWeight: 600,
-                  }}
-                >
-                  <s.icon
-                    className="w-4 h-4"
-                    strokeWidth={1.5}
-                    style={{ color: active ? theme.accent : theme.muted }}
-                  />
-                  <span className="text-sm hidden sm:inline">{s.title}</span>
-                  <span className="text-sm sm:hidden">
-                    {s.title.split(" ")[0]}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Panels */}
-          {services.map((s, i) => (
-            <div
-              key={s.id}
-              role="tabpanel"
-              id={`panel-${s.id}`}
-              aria-labelledby={`tab-${s.id}`}
-              hidden={i !== activeIndex}
-              className={`${i === activeIndex ? "block" : "hidden"}`}
-            >
-              <div className="grid md:grid-cols-3 gap-6 items-start">
-                <div className="md:col-span-2 space-y-4">
-                  <h3
-                    className="text-lg md:text-2xl font-semibold"
-                    style={{ color: theme.text }}
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s) => {
+            const IconComponent = s.icon;
+            return (
+              <div
+                key={s.id}
+                className="flex flex-col p-6 rounded-xl backdrop-blur-sm transition-all hover:scale-[1.02]"
+                style={{
+                  backgroundColor: theme.card,
+                  border: `1px solid ${theme.border}`,
+                }}
+              >
+                {/* Icon */}
+                <div className="mb-4">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{
+                      background: `linear-gradient(135deg, ${theme.accent}20, ${theme.accent}10)`,
+                    }}
                   >
-                    {s.title}
-                  </h3>
-                  <p style={{ color: theme.muted }}>{s.description}</p>
-
-                  <div className="mt-4 grid gap-3">
-                    {s.projects?.map((p) => (
-                      <div key={p.id}>
-                        <ProjectCard
-                          p={p}
-                          onOpenCarousel={(pid, idx) =>
-                            onOpenCarousel(pid, idx)
-                          }
-                          theme={theme}
-                        />
-                        {p.images && p.images.length > 0 && (
-                          <div className="mt-2 flex gap-2 overflow-x-auto">
-                            {p.images.slice(0, 5).map((src, idx) => (
-                              <button
-                                key={src + idx}
-                                onClick={() => onOpenCarousel(p.id, idx)}
-                                className="rounded overflow-hidden shrink-0"
-                                style={{
-                                  width: 76,
-                                  height: 48,
-                                  border: `1px solid ${theme.border}`,
-                                  padding: 0,
-                                  background: theme.card,
-                                }}
-                              >
-                                <img
-                                  src={src}
-                                  alt={`${p.title}-thumb-${idx}`}
-                                  style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    objectFit: "cover",
-                                  }}
-                                />
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                    <IconComponent
+                      className="w-6 h-6"
+                      strokeWidth={1.5}
+                      style={{ color: theme.accent }}
+                    />
                   </div>
                 </div>
 
-                <aside className="md:col-span-1">
-                  <Card
-                    className="p-3"
-                    style={{
-                      background: theme.card,
-                      border: `1px solid ${theme.border}`,
-                      borderRadius: 12,
-                    }}
-                  >
-                    <CardHeader className="space-y-2">
-                      <CardTitle style={{ color: theme.text }}>
-                        {s.title}
-                      </CardTitle>
-                      <CardDescription style={{ color: theme.muted }}>
-                        {s.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <div className="px-2 pb-2">
-                      <Button
-                        onClick={() => openModalFor(s)}
-                        className="w-full"
-                        style={{
-                          background: "transparent",
-                          borderRadius: 8,
-                          color: theme.accent,
-                        }}
-                      >
-                        Learn More
-                        <ArrowRight
-                          className="w-4 h-4 ml-2"
-                          strokeWidth={1.5}
-                        />
-                      </Button>
-                    </div>
-                  </Card>
-                </aside>
+                {/* Heading */}
+                <h3
+                  className="text-xl font-semibold mb-3"
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    color: theme.text,
+                  }}
+                >
+                  {s.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="text-sm leading-relaxed mb-6 flex-grow"
+                  style={{ color: theme.muted }}
+                >
+                  {s.description}
+                </p>
+
+                {/* View More Button */}
+                <Button
+                  onClick={() => openModalFor(s)}
+                  className="w-full mt-auto"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: `1px solid ${theme.accent}`,
+                    borderRadius: 8,
+                    color: theme.accent,
+                    padding: "0.625rem 1rem",
+                    fontWeight: 600,
+                  }}
+                >
+                  View More
+                  <ArrowRight className="w-4 h-4 ml-2" strokeWidth={1.5} />
+                </Button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -1421,7 +1622,7 @@ export default function Services({ isDark, theme }) {
         isMobile={isMobile}
       >
         {renderServiceModalContent(
-          modalService || services[activeIndex],
+          modalService,
           { onOpenCarousel },
           { carouselImages, carouselStartIndex, onCarouselIndexChange },
           theme,

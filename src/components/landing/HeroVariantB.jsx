@@ -7,12 +7,12 @@ export default function HeroVariantB() {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -20,16 +20,16 @@ export default function HeroVariantB() {
       {/* Device + Token Cluster Background - Option 2 */}
       <div className="absolute inset-0 bg-[#0A0A0F]">
         {/* Floating device mockups */}
-        <div 
+        <div
           className="absolute right-10 top-1/4 w-64 h-96 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl border border-white/10 backdrop-blur-sm transform rotate-12"
-          style={{ 
+          style={{
             transform: `rotate(12deg) translateY(${scrollY * 0.2}px)`,
-            transition: 'transform 0.1s ease-out'
+            transition: "transform 0.1s ease-out",
           }}
         >
           <div className="absolute inset-4 bg-[#0A0A0F]/50 rounded-2xl" />
         </div>
-        
+
         {/* Token cluster - floating coins */}
         <div className="absolute left-10 top-1/3 w-96 h-96">
           {[...Array(8)].map((_, i) => (
@@ -54,9 +54,11 @@ export default function HeroVariantB() {
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-[#0A0A0F] to-blue-900/20" />
-      <div 
+      <div
         className="absolute bottom-20 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-t from-purple-600/20 to-transparent blur-2xl"
-        style={{ transform: `translateX(-50%) translateY(${scrollY * -0.1}px)` }}
+        style={{
+          transform: `translateX(-50%) translateY(${scrollY * -0.1}px)`,
+        }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -83,12 +85,15 @@ export default function HeroVariantB() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Full-stack blockchain engineering, secure token launches, DAO governance and mobile app integration — <span className="text-purple-400 font-semibold">Pune-based team</span>, <span className="text-blue-400 font-semibold">global delivery</span>.
+            Full-stack blockchain engineering, secure token launches, DAO
+            governance and mobile app integration —{" "}
+            <span className="text-blue-400 font-semibold">global delivery</span>
+            .
           </p>
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <Button 
+            <Button
               size="lg"
               onClick={scrollToContact}
               className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0 px-8 py-6 text-lg group shadow-lg shadow-purple-500/30"
@@ -97,7 +102,7 @@ export default function HeroVariantB() {
               Schedule a Free Consultation
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button 
+            <Button
               size="lg"
               variant="outline"
               onClick={scrollToContact}
@@ -135,7 +140,8 @@ export default function HeroVariantB() {
 
       <style jsx>{`
         @keyframes tokenFloat {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) rotate(0deg) scale(1);
           }
           33% {
