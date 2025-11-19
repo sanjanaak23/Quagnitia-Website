@@ -59,7 +59,7 @@ export default function About({ isDark, theme }) {
                 <span className="font-semibold" style={{ color: theme.accent }}>
                   Agnito
                 </span>{" "}
-                (knowledge) = Quagnitia. With 7+ years delivering enterprise
+                (knowledge) = Quagnitia. With 24+ years delivering enterprise
                 software, we've evolved into a specialized blockchain and mobile
                 development powerhouse.
               </p>
@@ -172,7 +172,7 @@ export default function About({ isDark, theme }) {
                   className="text-2xl font-bold mb-1"
                   style={{ color: theme.text }}
                 >
-                  7+
+                  24+
                 </div>
                 <div className="text-sm" style={{ color: theme.muted }}>
                   Years in Software

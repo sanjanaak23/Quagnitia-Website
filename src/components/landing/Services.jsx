@@ -1233,12 +1233,7 @@ function renderServiceModalContent(
                     }}
                     onClick={() => onProjectTabChange(idx)}
                   >
-                    <div
-                      className="text-[11px] uppercase tracking-wide"
-                      style={{ color: active ? theme.accent : theme.muted }}
-                    >
-                      Project {idx + 1}
-                    </div>
+                   
                     <div
                       className="text-sm font-semibold line-clamp-1"
                       style={{ color: theme.text }}

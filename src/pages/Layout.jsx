@@ -121,7 +121,7 @@ export default function Layout({ children }) {
             </nav>
 
             <div className="flex items-center gap-4">
-              <Button
+              {/* <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsDark(!isDark)}
@@ -136,7 +136,7 @@ export default function Layout({ children }) {
                 ) : (
                   <Moon className="w-5 h-5" strokeWidth={1.5} />
                 )}
-              </Button>
+              </Button> */}
 
               <Button
                 onClick={() => scrollToSection("contact")}

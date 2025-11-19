@@ -3,6 +3,8 @@ import Layout from "./Layout.jsx";
 import Home from "./Home";
 
 import HeroComparison from "./HeroComparison";
+import PrivacyPolicy from "./PrivacyPolicy";
+import TermsOfService from "./TermsOfService";
 
 import {
   BrowserRouter as Router,
@@ -42,6 +44,8 @@ function PagesContent() {
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/HeroComparison" element={<HeroComparison />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/tos" element={<TermsOfService />} />
       </Routes>
     </Layout>
   );

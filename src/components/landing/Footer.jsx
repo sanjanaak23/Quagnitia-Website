@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Github, Linkedin, Twitter, Mail, Facebook } from "lucide-react";
 
 export default function Footer({ isDark, theme }) {
@@ -169,21 +170,28 @@ export default function Footer({ isDark, theme }) {
 
             <ul className="space-y-3">
               {[
-                "Blog",
-                "Case Studies",
-                "Whitepaper",
-                "Documentation",
-                "Privacy Policy",
-                "Terms of Service",
+                { label: "Blog", href: "#" },
+                { label: "Privacy Policy", href: "/privacypolicy" },
+                { label: "Terms of Service", href: "/tos" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a
-                    href="#"
-                    className="text-sm hover:opacity-70 transition-opacity"
-                    style={{ color: theme.muted }}
-                  >
-                    {item}
-                  </a>
+                  {item.href.startsWith("/") ? (
+                    <Link
+                      to={item.href}
+                      className="text-sm hover:opacity-70 transition-opacity"
+                      style={{ color: theme.muted }}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-sm hover:opacity-70 transition-opacity"
+                      style={{ color: theme.muted }}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
