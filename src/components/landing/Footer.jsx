@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Github, Linkedin, Twitter, Mail, Facebook } from "lucide-react";
 
 export default function Footer({ isDark, theme }) {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2000;
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
