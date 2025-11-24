@@ -1,10 +1,11 @@
 import Layout from "./Layout.jsx";
-
 import Home from "./Home";
-
 import HeroComparison from "./HeroComparison";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsOfService from "./TermsOfService";
+import Blog from "./Blog";
+import BlogPost from "./BlogPost";
+import BlogAdmin from "./BlogAdmin"; // Add this import
 
 import {
   BrowserRouter as Router,
@@ -16,6 +17,7 @@ import {
 const PAGES = {
   Home: Home,
   HeroComparison: HeroComparison,
+  Blog: Blog,
 };
 
 function _getCurrentPage(url) {
@@ -46,6 +48,11 @@ function PagesContent() {
         <Route path="/HeroComparison" element={<HeroComparison />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/tos" element={<TermsOfService />} />
+        {/* Blog Routes */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        {/* Admin Route */}
+        <Route path="/admin/blog" element={<BlogAdmin />} />
       </Routes>
     </Layout>
   );

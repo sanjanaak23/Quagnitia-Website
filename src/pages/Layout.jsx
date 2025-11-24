@@ -1,24 +1,32 @@
+// src/pages/Layout.jsx (Updated with Blog navigation)
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Menu, X } from "lucide-react";
-import logo from "./../assets/logo_small-up.png";
+import { Moon, Sun, Menu, X } from "lucide-react";       
+import { Link, useLocation } from "react-router-dom";
+import logo from "./../assets/logo_small-up.png";        
 const LayoutContext = createContext(null);
 
 export default function Layout({ children }) {
   const [isDark, setIsDark] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);   
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);     
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    // Only scroll if we're on the home page
+    if (location.pathname === '/' || location.pathname === '/Home') {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
     setMobileMenuOpen(false);
   };
+
+  const isHomePage = location.pathname === '/' || location.pathname === '/Home';
 
   const theme = isDark
     ? {
@@ -49,7 +57,7 @@ export default function Layout({ children }) {
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
-        
+
         h1, h2, h3, h4, h5, h6 {
           font-family: 'Poppins', sans-serif;
         }
@@ -65,70 +73,112 @@ export default function Layout({ children }) {
           borderBottom: isScrolled ? `1px solid ${theme.border}` : "none",
         }}
       >
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-4">    
           <div className="flex items-center justify-between">
-            <img
-              src={logo}
-              alt=" Quagnitia Systems Pvt. Ltd."
-              className="h-10 cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            />
+            <Link to="/">
+              <img
+                src={logo}
+                alt=" Quagnitia Systems Pvt. Ltd."
+                className="h-10 cursor-pointer"
+              />
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <button
-                onClick={() => scrollToSection("services")}
+              {isHomePage ? (
+                // Home page navigation (scroll-based)
+                <>
+                  <button
+                    onClick={() => scrollToSection("services")}
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    Services
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("about")} 
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    About
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("process")}
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    Process
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("testimonials")}
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    Clients
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("faq")}   
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    FAQ
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("contact")}
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    Contact
+                  </button>
+                </>
+              ) : (
+                // Other pages navigation (route-based)
+                <>
+                  <Link 
+                    to="/" 
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    Home
+                  </Link>
+                  <Link 
+                    to="/HeroComparison" 
+                    className="hover:opacity-70 transition-opacity"
+                    style={{ color: theme.muted }}
+                  >
+                    Comparison
+                  </Link>
+                </>
+              )}
+              
+              {/* Blog Link - Always visible */}
+              <Link 
+                to="/blog" 
+                className="hover:opacity-70 transition-opacity font-semibold"
+                style={{ color: theme.accent }}
+              >
+                Blog
+              </Link>
+
+              {/* Admin Link - Added to desktop navigation */}
+              <Link 
+                to="/admin/blog" 
                 className="hover:opacity-70 transition-opacity"
                 style={{ color: theme.muted }}
               >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="hover:opacity-70 transition-opacity"
-                style={{ color: theme.muted }}
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("process")}
-                className="hover:opacity-70 transition-opacity"
-                style={{ color: theme.muted }}
-              >
-                Process
-              </button>
-              <button
-                onClick={() => scrollToSection("testimonials")}
-                className="hover:opacity-70 transition-opacity"
-                style={{ color: theme.muted }}
-              >
-                Clients
-              </button>
-              <button
-                onClick={() => scrollToSection("faq")}
-                className="hover:opacity-70 transition-opacity"
-                style={{ color: theme.muted }}
-              >
-                FAQ
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="hover:opacity-70 transition-opacity"
-                style={{ color: theme.muted }}
-              >
-                Contact
-              </button>
+                Admin
+              </Link>
             </nav>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">    
               {/* <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setIsDark(!isDark)}
+                onClick={() => setIsDark(!isDark)}       
                 className="rounded-lg"
                 style={{
                   color: theme.text,
-                  border: `1px solid ${theme.border}`,
+                  border: `1px solid ${theme.border}`,   
                 }}
               >
                 {isDark ? (
@@ -138,19 +188,36 @@ export default function Layout({ children }) {
                 )}
               </Button> */}
 
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="hidden md:block"
-                style={{
-                  backgroundColor: theme.accent,
-                  color: "#FFFFFF",
-                  borderRadius: "8px",
-                  padding: "0 24px",
-                  height: "40px",
-                }}
-              >
-                Get Started
-              </Button>
+              {isHomePage ? (
+                <Button
+                  onClick={() => scrollToSection("contact")}
+                  className="hidden md:block"
+                  style={{
+                    backgroundColor: theme.accent,
+                    color: "#FFFFFF",
+                    borderRadius: "8px",
+                    padding: "0 24px",
+                    height: "40px",
+                  }}
+                >
+                  Get Started
+                </Button>
+              ) : (
+                <Link to="/">
+                  <Button
+                    className="hidden md:block"
+                    style={{
+                      backgroundColor: theme.accent,
+                      color: "#FFFFFF",
+                      borderRadius: "8px",
+                      padding: "0 24px",
+                      height: "40px",
+                    }}
+                  >
+                    Get Started
+                  </Button>
+                </Link>
+              )}
 
               <Button
                 variant="ghost"
@@ -172,84 +239,131 @@ export default function Layout({ children }) {
           {mobileMenuOpen && (
             <nav
               className="md:hidden pt-4 pb-4 flex flex-col items-center gap-4 border-t mt-4"
-              style={{ borderColor: theme.border }}
+              style={{ borderColor: theme.border }}      
             >
-              <button
-                onClick={() => scrollToSection("services")}
+              {isHomePage ? (
+                // Home page mobile navigation
+                <>
+                  <button
+                    onClick={() => scrollToSection("services")}
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                  >
+                    Services
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("about")} 
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                  >
+                    About
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("process")}
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                  >
+                    Process
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("testimonials")}
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                  >
+                    Clients
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("faq")}   
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                  >
+                    FAQ
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("contact")}
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                  >
+                    Contact
+                  </button>
+                </>
+              ) : (
+                // Other pages mobile navigation
+                <>
+                  <Link 
+                    to="/" 
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  <Link 
+                    to="/HeroComparison" 
+                    className="text-left py-2"
+                    style={{ color: theme.muted }}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Comparison
+                  </Link>
+                </>
+              )}
+              
+              {/* Blog Link - Always visible in mobile */}
+              <Link 
+                to="/blog" 
+                className="text-left py-2 font-semibold"
+                style={{ color: theme.accent }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blog
+              </Link>
+
+              {/* Admin Link - Added to mobile navigation */}
+              <Link 
+                to="/admin/blog" 
                 className="text-left py-2"
                 style={{ color: theme.muted }}
+                onClick={() => setMobileMenuOpen(false)}
               >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-left py-2"
-                style={{ color: theme.muted }}
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("process")}
-                className="text-left py-2"
-                style={{ color: theme.muted }}
-              >
-                Process
-              </button>
-              <button
-                onClick={() => scrollToSection("testimonials")}
-                className="text-left py-2"
-                style={{ color: theme.muted }}
-              >
-                Clients
-              </button>
-              <button
-                onClick={() => scrollToSection("faq")}
-                className="text-left py-2"
-                style={{ color: theme.muted }}
-              >
-                FAQ
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-left py-2"
-                style={{ color: theme.muted }}
-              >
-                Contact
-              </button>
+                Admin
+              </Link>
             </nav>
           )}
         </div>
       </header>
 
-      <LayoutContext.Provider value={{ isDark, theme }}>
-        <main className="pt-20">{children}</main>
+      <LayoutContext.Provider value={{ isDark, theme }}> 
+        <main className="pt-20">{children}</main>        
       </LayoutContext.Provider>
 
       {/* Sticky Bottom CTA (Mobile Only) */}
-      <div
-        className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-4 backdrop-blur-lg shadow-lg"
-        style={{
-          backgroundColor: isDark
-            ? "rgba(13, 23, 34, 0.95)"
-            : "rgba(244, 247, 250, 0.95)",
-          borderTop: `1px solid ${theme.border}`,
-        }}
-      >
-        <Button
-          onClick={() => scrollToSection("contact")}
-          className="w-full"
+      {isHomePage && (
+        <div
+          className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-4 backdrop-blur-lg shadow-lg"
           style={{
-            backgroundColor: theme.accent,
-            color: "#FFFFFF",
-            borderRadius: "8px",
-            height: "48px",
-            fontSize: "16px",
-            fontWeight: "600",
+            backgroundColor: isDark
+              ? "rgba(13, 23, 34, 0.95)"
+              : "rgba(244, 247, 250, 0.95)",
+            borderTop: `1px solid ${theme.border}`,        
           }}
         >
-          Get a Free Quote
-        </Button>
-      </div>
+          <Button
+            onClick={() => scrollToSection("contact")}     
+            className="w-full"
+            style={{
+              backgroundColor: theme.accent,
+              color: "#FFFFFF",
+              borderRadius: "8px",
+              height: "48px",
+              fontSize: "16px",
+              fontWeight: "600",
+            }}
+          >
+            Get a Free Quote
+          </Button>
+        </div>
+      )}
 
       {/* Mobile padding for sticky CTA */}
       <div className="md:hidden h-20" />
