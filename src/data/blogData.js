@@ -5,7 +5,7 @@ const staticBlogPosts = [
     slug: "blockchain-development-2025",
     title: "Complete Guide to Blockchain Development in 2025",
     excerpt: "Learn everything about modern blockchain development, from smart contracts to DeFi protocols and the latest trends shaping the industry.",
-    bannerImage: "/src/assets/web3m.png",
+    bannerImage: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&auto=format&fit=crop",
     content: [
       {
         type: "paragraph",
@@ -17,7 +17,7 @@ const staticBlogPosts = [
       },
       {
         type: "image",
-        url: "/src/assets/web3m.png",
+        url: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&auto=format&fit=crop",
         alt: "Blockchain Development Architecture"
       },
       {
@@ -34,7 +34,7 @@ const staticBlogPosts = [
     slug: "react-best-practices",
     title: "React Best Practices for Modern Web Development",
     excerpt: "Discover the latest React patterns, performance optimization techniques, and best practices for building scalable applications in 2025.",
-    bannerImage: "/src/assets/game2.jpg",
+    bannerImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop",
     content: [
       {
         type: "paragraph",
@@ -46,7 +46,7 @@ const staticBlogPosts = [
       },
       {
         type: "image",
-        url: "/src/assets/game2.jpg", 
+        url: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop", 
         alt: "React Code Structure"
       },
       {
@@ -63,7 +63,7 @@ const staticBlogPosts = [
     slug: "web3-mobile-integration",
     title: "Integrating Web3 Features in Mobile Applications",
     excerpt: "Learn how to seamlessly integrate blockchain features into mobile apps, including wallet connectivity, NFT displays, and on-chain transactions.",
-    bannerImage: "/src/assets/game.webp",
+    bannerImage: "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop",
     content: [
       {
         type: "paragraph",
@@ -75,7 +75,7 @@ const staticBlogPosts = [
       },
       {
         type: "image",
-        url: "/src/assets/game.webp",
+        url: "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop",
         alt: "Mobile Web3 Integration"
       },
       {
@@ -86,6 +86,31 @@ const staticBlogPosts = [
     author: "Sanjana Kumari",
     publishedDate: "2025-11-18",
     readTime: "7 min read"
+  },
+  {
+    id: 4,
+    slug: "web3-security-best-practices-2025",
+    title: "Web3 Security Best Practices for 2025",
+    excerpt: "Essential security measures and smart contract auditing techniques to protect your Web3 applications from emerging threats and vulnerabilities.",
+    bannerImage: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop",
+    content: [
+      {
+        type: "paragraph",
+        text: "As Web3 adoption accelerates, security remains the cornerstone of building trust in decentralized applications. The landscape of threats has evolved significantly, requiring developers to implement robust security measures from day one."
+      },
+      {
+        type: "paragraph", 
+        text: "In 2025, we're seeing sophisticated attack vectors targeting cross-chain bridges, flash loans, and governance mechanisms. Understanding these threats is crucial for building resilient dApps that protect user funds and data."
+      },
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop",
+        alt: "Web3 Security"
+      }
+    ],
+    author: "Sanjana Kumari",
+    publishedDate: "2025-11-17",
+    readTime: "9 min read"
   }
 ];
 
@@ -101,3 +126,4 @@ const getAllBlogPosts = () => {
 };
 
 export default getAllBlogPosts;
+export { staticBlogPosts };
