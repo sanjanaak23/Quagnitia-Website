@@ -1,3 +1,4 @@
+// src/pages/index.jsx
 import Layout from "./Layout.jsx";
 import Home from "./Home";
 import HeroComparison from "./HeroComparison";
@@ -5,7 +6,7 @@ import PrivacyPolicy from "./PrivacyPolicy";
 import TermsOfService from "./TermsOfService";
 import Blog from "./Blog";
 import BlogPost from "./BlogPost";
-import BlogAdmin from "./BlogAdmin"; // Add this import
+import BlogAdmin from "./BlogAdmin";
 
 import {
   BrowserRouter as Router,
@@ -18,6 +19,7 @@ const PAGES = {
   Home: Home,
   HeroComparison: HeroComparison,
   Blog: Blog,
+  BlogAdmin: BlogAdmin, // Add BlogAdmin to PAGES if needed for navigation
 };
 
 function _getCurrentPage(url) {
@@ -44,15 +46,20 @@ function PagesContent() {
     <Layout currentPageName={currentPage}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/HeroComparison" element={<HeroComparison />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/herocomparison" element={<HeroComparison />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/tos" element={<TermsOfService />} />
+        
         {/* Blog Routes */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        
         {/* Admin Route */}
         <Route path="/admin/blog" element={<BlogAdmin />} />
+        
+        {/* Catch-all route for better UX */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </Layout>
   );
