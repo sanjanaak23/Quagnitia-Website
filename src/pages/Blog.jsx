@@ -5,11 +5,46 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import getAllBlogPosts from "@/data/blogData";
+
+// TEMPORARY FIX - Direct data in component
+const staticBlogPosts = [
+  {
+    id: 1,
+    slug: "blockchain-development-2025",
+    title: "Complete Guide to Blockchain Development in 2025",
+    excerpt: "Learn everything about modern blockchain development, from smart contracts to DeFi protocols and the latest Web3 frameworks shaping the industry.",
+    bannerImage: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&auto=format&fit=crop",
+    author: "Sanjana Kumari",
+    publishedDate: "2025-11-20",
+    readTime: "8 min read"
+  },
+  {
+    id: 2,
+    slug: "react-best-practices",
+    title: "React Best Practices for Modern Web Development",
+    excerpt: "Discover the latest React patterns, performance optimization techniques, and coding standards for building scalable applications.",
+    bannerImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop",
+    author: "Sanjana Kumari",
+    publishedDate: "2025-11-19",
+    readTime: "6 min read"
+  },
+  {
+    id: 3,
+    slug: "web3-mobile-integration",
+    title: "Integrating Web3 Features in Mobile Applications",
+    excerpt: "Learn how to seamlessly integrate blockchain features into mobile apps using React Native and modern Web3 libraries.",
+    bannerImage: "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop",
+    author: "Sanjana Kumari",
+    publishedDate: "2025-11-18",
+    readTime: "7 min read"
+  }
+];
 
 export default function Blog() {
   const { isDark, theme } = useLayoutContext();
-  const blogPosts = getAllBlogPosts(); // This line MUST be inside the component function
+  
+  // Use temporary data directly
+  const blogPosts = staticBlogPosts;
 
   return (
     <section className="py-20">
@@ -48,6 +83,10 @@ export default function Blog() {
                     src={post.bannerImage}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback if image fails
+                      e.target.src = "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&auto=format&fit=crop";
+                    }}
                   />
                 </div>
                 
@@ -98,16 +137,6 @@ export default function Blog() {
             </Card>
           ))}
         </div>
-
-        {/* Empty State (if no posts) */}
-        {blogPosts.length === 0 && (
-          <div className="text-center py-16">
-            <div style={{ color: theme.muted }}>
-              <p className="text-lg mb-4">No blog posts yet.</p>
-              <p>Check back soon for updates!</p>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
