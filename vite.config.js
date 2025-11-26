@@ -5,7 +5,8 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts: true
+    allowedHosts: true,
+    host: true // Allow external access
   },
   resolve: {
     alias: {
@@ -20,9 +21,22 @@ export default defineConfig({
       },
     },
   },
-  base: '/', // Important for Render
+  base: '/', // Important for Vercel
   build: {
     outDir: 'dist',
-    sourcemap: false // Optional: disable sourcemaps for smaller build
+    sourcemap: false, // Disable sourcemaps for smaller build
+    chunkSizeWarningLimit: 1600, // Increase chunk size warning limit
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['lucide-react', 'sonner', 'framer-motion']
+        }
+      }
+    }
+  },
+  preview: {
+    host: true,
+    port: 4173
   }
 })

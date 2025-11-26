@@ -15,32 +15,35 @@ import {
   useLocation,
 } from "react-router-dom";
 
-const PAGES = {
-  Home: Home,
-  HeroComparison: HeroComparison,
-  Blog: Blog,
-  BlogAdmin: BlogAdmin, // Add BlogAdmin to PAGES if needed for navigation
-};
-
-function _getCurrentPage(url) {
-  if (url.endsWith("/")) {
-    url = url.slice(0, -1);
+// Enhanced function to handle nested routes
+function getCurrentPage(pathname) {
+  // Remove trailing slash
+  const path = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  
+  const pathMap = {
+    '/': 'Home',
+    '/home': 'Home',
+    '/herocomparison': 'HeroComparison',
+    '/blog': 'Blog',
+    '/admin/blog': 'BlogAdmin'
+  };
+  
+  // Check exact matches first
+  if (pathMap[path]) {
+    return pathMap[path];
   }
-  let urlLastPart = url.split("/").pop();
-  if (urlLastPart.includes("?")) {
-    urlLastPart = urlLastPart.split("?")[0];
+  
+  // Check for blog post routes
+  if (path.startsWith('/blog/')) {
+    return 'Blog';
   }
-
-  const pageName = Object.keys(PAGES).find(
-    (page) => page.toLowerCase() === urlLastPart.toLowerCase()
-  );
-  return pageName || Object.keys(PAGES)[0];
+  
+  return 'Home';
 }
 
-// Create a wrapper component that uses useLocation inside the Router context
 function PagesContent() {
   const location = useLocation();
-  const currentPage = _getCurrentPage(location.pathname);
+  const currentPage = getCurrentPage(location.pathname);
 
   return (
     <Layout currentPageName={currentPage}>
@@ -50,15 +53,9 @@ function PagesContent() {
         <Route path="/herocomparison" element={<HeroComparison />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/tos" element={<TermsOfService />} />
-        
-        {/* Blog Routes */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
-        
-        {/* Admin Route */}
         <Route path="/admin/blog" element={<BlogAdmin />} />
-        
-        {/* Catch-all route for better UX */}
         <Route path="*" element={<Home />} />
       </Routes>
     </Layout>
