@@ -8,8 +8,16 @@
   ],
   "routes": [
     {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
+      "src": "/admin/blog",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/blog/(.*)",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
